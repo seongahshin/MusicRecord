@@ -19,6 +19,7 @@
 		8CDC1A242BC802310088BAF1 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CDC1A232BC802310088BAF1 /* Task.swift */; };
 		8CDC1A272BC802530088BAF1 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CDC1A262BC802530088BAF1 /* Home.swift */; };
 		8CDC1A292BC8077D0088BAF1 /* OffsetKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CDC1A282BC8077D0088BAF1 /* OffsetKey.swift */; };
+		8CDC1A2B2BC8D49A0088BAF1 /* MusicSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CDC1A2A2BC8D49A0088BAF1 /* MusicSearchView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		8CDC1A232BC802310088BAF1 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		8CDC1A262BC802530088BAF1 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		8CDC1A282BC8077D0088BAF1 /* OffsetKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OffsetKey.swift; sourceTree = "<group>"; };
+		8CDC1A2A2BC8D49A0088BAF1 /* MusicSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicSearchView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,6 +166,7 @@
 			isa = PBXGroup;
 			children = (
 				8CDC1A262BC802530088BAF1 /* Home.swift */,
+				8CDC1A2A2BC8D49A0088BAF1 /* MusicSearchView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -300,6 +303,7 @@
 			files = (
 				8CDC19F32BC801C30088BAF1 /* ContentView.swift in Sources */,
 				8CDC19F12BC801C30088BAF1 /* MusicRecordAppApp.swift in Sources */,
+				8CDC1A2B2BC8D49A0088BAF1 /* MusicSearchView.swift in Sources */,
 				8CDC1A242BC802310088BAF1 /* Task.swift in Sources */,
 				8CDC1A292BC8077D0088BAF1 /* OffsetKey.swift in Sources */,
 				8CDC1A212BC802170088BAF1 /* View+Extension.swift in Sources */,

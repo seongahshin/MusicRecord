@@ -168,6 +168,8 @@ struct Home: View {
 }
 
 struct noRecordContentView: View {
+    @State private var showingModal = false
+    
     var body: some View {
         ZStack {
             Rectangle()
@@ -182,8 +184,7 @@ struct noRecordContentView: View {
     @ViewBuilder
     func addRecordButton() -> some View {
         Button(action: {
-            /// 기록 추가 버튼 눌렀을 때 action
-            
+            showingModal = true
         }, label: {
             
             VStack(spacing: 10) {
@@ -201,6 +202,9 @@ struct noRecordContentView: View {
             .foregroundStyle(.white)
             .shadow(color: .gray, radius: 3, x: 0, y:0)
         )
+        .sheet(isPresented: $showingModal) {
+            MusicSearchView()
+        }
     }
 }
 

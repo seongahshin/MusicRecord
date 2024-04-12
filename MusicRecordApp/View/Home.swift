@@ -19,6 +19,7 @@ struct Home: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 0 ,content: {
             HeaderView()
+            noRecordContentView()
         })
         .vSpacing(.top)
         .onAppear(perform: {
@@ -164,7 +165,43 @@ struct Home: View {
         print(weekSlider.count)
     }
     
+}
+
+struct noRecordContentView: View {
+    var body: some View {
+        ZStack {
+            Rectangle()
+                .foregroundStyle(.cyan)
+                .ignoresSafeArea(.all, edges: .bottom)
+            
+            addRecordButton()
+            
+        }
+    }
     
+    @ViewBuilder
+    func addRecordButton() -> some View {
+        Button(action: {
+            /// 기록 추가 버튼 눌렀을 때 action
+            
+        }, label: {
+            
+            VStack(spacing: 10) {
+                Image(systemName: "plus")
+                    .font(.title)
+                
+                Text("기록 추가하기")
+                    .fontWeight(.medium)
+                    .font(.system(size: 20))
+            }
+        })
+        .foregroundStyle(.blue)
+        .frame(width: 150, height: 150)
+        .background(RoundedRectangle(cornerRadius: 20)
+            .foregroundStyle(.white)
+            .shadow(color: .gray, radius: 3, x: 0, y:0)
+        )
+    }
 }
 
 #Preview {

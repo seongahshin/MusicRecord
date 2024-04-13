@@ -17,9 +17,10 @@ struct Home: View {
     @Namespace private var animation
     
     var body: some View {
-        VStack(alignment: .leading, spacing: 0 ,content: {
+        VStack(spacing: 0 ,content: {
             HeaderView()
-            noRecordContentView()
+            // 수정해야함
+            RecordContentView()
         })
         .vSpacing(.top)
         .onAppear(perform: {
@@ -163,6 +164,38 @@ struct Home: View {
         }
     }
     
+}
+
+struct RecordContentView: View {
+    @State private var text: String = "여기에 텍스트를 입력하세요..."
+    var body: some View {
+        VStack {
+            Rectangle()
+                .cornerRadius(8)
+                .shadow(radius: 5)
+                .frame(width: 200, height: 200) // 이 크기는 원하는 크기에 맞게 조절하세요.
+
+            Text("Fake Plastic Trees")
+                .font(.title)
+                .fontWeight(.bold)
+                .padding(.top, 8)
+//            
+            Text("RadioHead")
+                .font(.headline)
+                .foregroundColor(.secondary)
+                .padding(.bottom, 8)
+
+            Spacer()
+
+            TextEditor(text: $text)
+                .padding()
+                .border(Color.gray, width: 1)
+                .padding()
+//
+            Spacer()
+        }
+        .padding()
+    }
 }
 
 struct noRecordContentView: View {

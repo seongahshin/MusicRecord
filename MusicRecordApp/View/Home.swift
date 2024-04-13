@@ -161,8 +161,6 @@ struct Home: View {
                 currentWeekIndex = weekSlider.count - 2
             }
         }
-        
-        print(weekSlider.count)
     }
     
 }

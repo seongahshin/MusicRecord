@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		8CDC19F12BC801C30088BAF1 /* MusicRecordAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CDC19F02BC801C30088BAF1 /* MusicRecordAppApp.swift */; };
-		8CDC19F32BC801C30088BAF1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CDC19F22BC801C30088BAF1 /* ContentView.swift */; };
 		8CDC19F52BC801C40088BAF1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8CDC19F42BC801C40088BAF1 /* Assets.xcassets */; };
 		8CDC19F92BC801C40088BAF1 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8CDC19F82BC801C40088BAF1 /* Preview Assets.xcassets */; };
 		8CDC1A032BC801C50088BAF1 /* MusicRecordAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CDC1A022BC801C50088BAF1 /* MusicRecordAppTests.swift */; };
@@ -20,6 +19,9 @@
 		8CDC1A272BC802530088BAF1 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CDC1A262BC802530088BAF1 /* Home.swift */; };
 		8CDC1A292BC8077D0088BAF1 /* OffsetKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CDC1A282BC8077D0088BAF1 /* OffsetKey.swift */; };
 		8CDC1A2B2BC8D49A0088BAF1 /* MusicSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CDC1A2A2BC8D49A0088BAF1 /* MusicSearchView.swift */; };
+		8CDC1A2E2BC8DEAD0088BAF1 /* MusicSearchManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CDC1A2D2BC8DEAD0088BAF1 /* MusicSearchManager.swift */; };
+		8CDC1A312BC8DFBA0088BAF1 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 8CDC1A302BC8DFBA0088BAF1 /* Alamofire */; };
+		8CE7C8F42BCA542E003AEE9B /* MusicAuthorizationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CE7C8F32BCA542E003AEE9B /* MusicAuthorizationManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,7 +44,6 @@
 /* Begin PBXFileReference section */
 		8CDC19ED2BC801C30088BAF1 /* MusicRecordApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MusicRecordApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CDC19F02BC801C30088BAF1 /* MusicRecordAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicRecordAppApp.swift; sourceTree = "<group>"; };
-		8CDC19F22BC801C30088BAF1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		8CDC19F42BC801C40088BAF1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8CDC19F62BC801C40088BAF1 /* MusicRecordApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MusicRecordApp.entitlements; sourceTree = "<group>"; };
 		8CDC19F82BC801C40088BAF1 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -57,6 +58,9 @@
 		8CDC1A262BC802530088BAF1 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		8CDC1A282BC8077D0088BAF1 /* OffsetKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OffsetKey.swift; sourceTree = "<group>"; };
 		8CDC1A2A2BC8D49A0088BAF1 /* MusicSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicSearchView.swift; sourceTree = "<group>"; };
+		8CDC1A2D2BC8DEAD0088BAF1 /* MusicSearchManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicSearchManager.swift; sourceTree = "<group>"; };
+		8CDC1A322BC95F120088BAF1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		8CE7C8F32BCA542E003AEE9B /* MusicAuthorizationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicAuthorizationManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +68,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8CDC1A312BC8DFBA0088BAF1 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -107,11 +112,12 @@
 		8CDC19EF2BC801C30088BAF1 /* MusicRecordApp */ = {
 			isa = PBXGroup;
 			children = (
+				8CDC1A322BC95F120088BAF1 /* Info.plist */,
+				8CDC1A2C2BC8DE9B0088BAF1 /* Manager */,
 				8CDC1A252BC8024B0088BAF1 /* View */,
 				8CDC1A222BC802290088BAF1 /* Model */,
 				8CDC1A1D2BC801F20088BAF1 /* Helper */,
 				8CDC19F02BC801C30088BAF1 /* MusicRecordAppApp.swift */,
-				8CDC19F22BC801C30088BAF1 /* ContentView.swift */,
 				8CDC19F42BC801C40088BAF1 /* Assets.xcassets */,
 				8CDC19F62BC801C40088BAF1 /* MusicRecordApp.entitlements */,
 				8CDC19F72BC801C40088BAF1 /* Preview Content */,
@@ -171,6 +177,23 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		8CDC1A2C2BC8DE9B0088BAF1 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				8CE7C8F22BCA53B1003AEE9B /* Music */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		8CE7C8F22BCA53B1003AEE9B /* Music */ = {
+			isa = PBXGroup;
+			children = (
+				8CDC1A2D2BC8DEAD0088BAF1 /* MusicSearchManager.swift */,
+				8CE7C8F32BCA542E003AEE9B /* MusicAuthorizationManager.swift */,
+			);
+			path = Music;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -187,6 +210,9 @@
 			dependencies = (
 			);
 			name = MusicRecordApp;
+			packageProductDependencies = (
+				8CDC1A302BC8DFBA0088BAF1 /* Alamofire */,
+			);
 			productName = MusicRecordApp;
 			productReference = 8CDC19ED2BC801C30088BAF1 /* MusicRecordApp.app */;
 			productType = "com.apple.product-type.application";
@@ -259,6 +285,9 @@
 				Base,
 			);
 			mainGroup = 8CDC19E42BC801C30088BAF1;
+			packageReferences = (
+				8CDC1A2F2BC8DFBA0088BAF1 /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
 			productRefGroup = 8CDC19EE2BC801C30088BAF1 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -301,7 +330,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8CDC19F32BC801C30088BAF1 /* ContentView.swift in Sources */,
+				8CDC1A2E2BC8DEAD0088BAF1 /* MusicSearchManager.swift in Sources */,
+				8CE7C8F42BCA542E003AEE9B /* MusicAuthorizationManager.swift in Sources */,
 				8CDC19F12BC801C30088BAF1 /* MusicRecordAppApp.swift in Sources */,
 				8CDC1A2B2BC8D49A0088BAF1 /* MusicSearchView.swift in Sources */,
 				8CDC1A242BC802310088BAF1 /* Task.swift in Sources */,
@@ -468,8 +498,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MusicRecordApp/Preview Content\"";
+				DEVELOPMENT_TEAM = 5C6W5SYCQQ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MusicRecordApp/Info.plist;
+				INFOPLIST_KEY_NSAppleMusicUsageDescription = "음아러ㅣ라ㅣㄴ";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -505,8 +538,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MusicRecordApp/Preview Content\"";
+				DEVELOPMENT_TEAM = 5C6W5SYCQQ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MusicRecordApp/Info.plist;
+				INFOPLIST_KEY_NSAppleMusicUsageDescription = "음아러ㅣ라ㅣㄴ";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -659,6 +695,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		8CDC1A2F2BC8DFBA0088BAF1 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.9.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		8CDC1A302BC8DFBA0088BAF1 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8CDC1A2F2BC8DFBA0088BAF1 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 8CDC19E52BC801C30088BAF1 /* Project object */;
 }

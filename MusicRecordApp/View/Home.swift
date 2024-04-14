@@ -6,21 +6,45 @@
 //
 
 import SwiftUI
+import MusicKit
+import SwiftData
 
 struct Home: View {
-    /// TaskManager Properties
-    @State private var currentDate: Date = .init()
+    @EnvironmentObject var sharedDateManager: SharedDataManager
+    
+    @State private var currentDate: String = Date().formattedDate()
     @State private var weekSlider: [[Date.WeekDay]] = []
     @State private var currentWeekIndex: Int = 1
     @State private var createWeek: Bool = false
     /// Animation Namespace
     @Namespace private var animation
     
+    @Query private var dateRecord: [Record]
+    
+    var recort: [Record] {
+        print("Record 전체 확인: \(dateRecord.count)")
+        return dateRecord.filter { record in
+            record.date == currentDate
+        }
+    }
+    
     var body: some View {
         VStack(spacing: 0 ,content: {
             HeaderView()
-            // 수정해야함
-            RecordContentView()
+            
+            if let songInfo = sharedDateManager.selectedSongInfo {
+                RecordContentView(songInfo: songInfo, selectedDate: $currentDate)
+            } else {
+                if recort.isEmpty {
+                    noRecordContentView()
+                } else {
+                    let songInfo = recort[0].records[0]
+                    if let image = songInfo.albumImage {
+                        RecordContentView(songInfo: SongInfo(image: image, title: songInfo.songTitle, singer: songInfo.singer), selectedDate: $currentDate)
+                    }
+                }
+                
+            }
         })
         .vSpacing(.top)
         .onAppear(perform: {
@@ -44,16 +68,10 @@ struct Home: View {
     func HeaderView() -> some View {
         VStack(alignment: .leading, spacing: 6) {
             HStack(spacing: 5) {
-                Text(currentDate.format("MMMM"))
+                Text(currentDate)
                     .foregroundStyle(.blue)
             }
             .font(.title.bold())
-            
-            Text(currentDate.formatted(date: .complete, time: .omitted))
-                .font(.callout)
-                .fontWeight(.semibold)
-                .textScale(.secondary)
-                .foregroundStyle(.gray)
             
             /// Week Slider
             TabView(selection: $currentWeekIndex) {
@@ -95,10 +113,10 @@ struct Home: View {
                         .font(.callout)
                         .fontWeight(.bold)
                         .textScale(.secondary)
-                        .foregroundStyle(isSameDate(day.date, currentDate) ? .white : .gray)
+                        .foregroundStyle(isSameDate(day.date.formattedDate(), currentDate) ? .white : .gray)
                         .frame(width: 35, height: 35)
                         .background(content: {
-                            if isSameDate(day.date, currentDate) {
+                            if isSameDate(day.date.formattedDate(), currentDate) {
                                 Circle()
                                     .fill(.blue)
                                     .matchedGeometryEffect(id: "TABINDICATOR", in: animation)
@@ -122,7 +140,9 @@ struct Home: View {
                 .onTapGesture {
                     /// Updating Current Date
                     withAnimation(.snappy) {
-                        currentDate = day.date
+                        sharedDateManager.selectedDate = day.date.formattedDate()
+                        print("날짜 클릭했을 때 date: \(day.date)")
+                        currentDate = day.date.formattedDate()
                     }
                 }
             }
@@ -135,7 +155,6 @@ struct Home: View {
                     .onPreferenceChange(OffsetKey.self) { value in
                         /// When the Offset reasches 15 and if the createWeek is toggled then simply generating next set of week
                         if value.rounded() == 15 && createWeek {
-//                            print("Generate")
                             paginateWeek()
                             createWeek = false
                         }
@@ -167,20 +186,32 @@ struct Home: View {
 }
 
 struct RecordContentView: View {
-    @State private var text: String = "여기에 텍스트를 입력하세요..."
+    let imageManager = ImageManager()
+    var songInfo: SongInfo
+    
+    @State private var text: String = ""
+    @Environment(\.modelContext) var modelContext
+    @EnvironmentObject var sharedDateManager: SharedDataManager
+    @Binding var selectedDate: String
+    
     var body: some View {
         VStack {
-            Rectangle()
-                .cornerRadius(8)
-                .shadow(radius: 5)
-                .frame(width: 200, height: 200) // 이 크기는 원하는 크기에 맞게 조절하세요.
+            HStack {
+                Spacer()
+                saveButton()
+            }
 
-            Text("Fake Plastic Trees")
+            AsyncImage(url: URL(string: songInfo.image))
+                .frame(width: 200, height: 200)
+                .cornerRadius(20)
+                .clipped()
+
+            Text(songInfo.title)
                 .font(.title)
                 .fontWeight(.bold)
                 .padding(.top, 8)
-//            
-            Text("RadioHead")
+            
+            Text(songInfo.singer)
                 .font(.headline)
                 .foregroundColor(.secondary)
                 .padding(.bottom, 8)
@@ -196,6 +227,39 @@ struct RecordContentView: View {
         }
         .padding()
     }
+    
+    @ViewBuilder
+    func saveButton() -> some View {
+        Button("저장") {
+
+            // sharedDateManager 상태 확인
+            print("Selected Date: \(String(describing: sharedDateManager.selectedDate))")
+            print("Selected Song Info: \(String(describing: sharedDateManager.selectedSongInfo))")
+
+            if let song = sharedDateManager.selectedSongInfo {
+                let record = Record(date: selectedDate, records: [
+                    DayRecord(id: UUID(), albumImage: song.image, songTitle: song.title, singer: song.singer, detailRecord: text)
+                ])
+                print("저장된 데이터 확인: \(record)")
+                // CoreData Context에 데이터 저장
+                modelContext.insert(record)
+                do {
+                    try modelContext.save()
+                    print(modelContext.sqliteCommand)
+                    print("데이터 저장 완료")
+                } catch {
+                    print("데이터 저장 실패: \(error)")
+                }
+            } else {
+                print("필요한 데이터가 없어 저장을 진행하지 못했습니다.")
+            }
+        }
+        .bold()
+        .padding(.horizontal, 10)
+        .buttonStyle(DefaultButtonStyle())
+        .foregroundStyle(.red)
+    }
+
 }
 
 struct noRecordContentView: View {
@@ -234,7 +298,7 @@ struct noRecordContentView: View {
             .shadow(color: .gray, radius: 3, x: 0, y:0)
         )
         .sheet(isPresented: $showingModal) {
-            MusicSearchView()
+            MusicSearchView(isPresented: $showingModal)
         }
     }
 }

@@ -33,11 +33,23 @@ struct Home: View {
             HeaderView()
             
             if let songInfo = sharedDateManager.selectedSongInfo {
-                RecordContentView(songInfo: songInfo, selectedDate: $currentDate)
+                if !recort.isEmpty {
+                    // 현재 선택된 노래가 있는 상태이고 해당 날짜에 저장된 노래가 있는 상태
+                    let songInfo = recort[0].records[0]
+                    if let image = songInfo.albumImage {
+                        RecordContentView(songInfo: SongInfo(image: image, title: songInfo.songTitle, singer: songInfo.singer), selectedDate: $currentDate)
+                    }
+                } else {
+                    // 현재 선택된 노래가 있는 상태이고 해당 날짜에 저장된 노래가 없는 상태
+                    RecordContentView(songInfo: songInfo, selectedDate: $currentDate)
+                }
+                
             } else {
                 if recort.isEmpty {
+                    // 현재 선택된 노래가 없는 상태이고 해당 날짜에 저장된 노래가 없는 상태
                     noRecordContentView()
                 } else {
+                    // 현재 선택된 노래가 없는 상태이고 해당 날짜에 저장된 노래가 있ㄴ 상태
                     let songInfo = recort[0].records[0]
                     if let image = songInfo.albumImage {
                         RecordContentView(songInfo: SongInfo(image: image, title: songInfo.songTitle, singer: songInfo.singer), selectedDate: $currentDate)
@@ -253,6 +265,8 @@ struct RecordContentView: View {
             } else {
                 print("필요한 데이터가 없어 저장을 진행하지 못했습니다.")
             }
+            
+            sharedDateManager.selectedSongInfo = nil
         }
         .bold()
         .padding(.horizontal, 10)

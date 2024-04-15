@@ -24,6 +24,7 @@
 		8CE7C8F92BCA7334003AEE9B /* RecordModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CE7C8F82BCA7334003AEE9B /* RecordModel.swift */; };
 		8CE7C8FC2BCA7AF5003AEE9B /* SharedDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CE7C8FB2BCA7AF5003AEE9B /* SharedDataManager.swift */; };
 		8CE7C8FF2BCACF1B003AEE9B /* ImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CE7C8FE2BCACF1B003AEE9B /* ImageManager.swift */; };
+		8CE7C9032BCD43B7003AEE9B /* WriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CE7C9022BCD43B7003AEE9B /* WriteView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,7 @@
 		8CE7C8F82BCA7334003AEE9B /* RecordModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordModel.swift; sourceTree = "<group>"; };
 		8CE7C8FB2BCA7AF5003AEE9B /* SharedDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedDataManager.swift; sourceTree = "<group>"; };
 		8CE7C8FE2BCACF1B003AEE9B /* ImageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageManager.swift; sourceTree = "<group>"; };
+		8CE7C9022BCD43B7003AEE9B /* WriteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,6 +179,7 @@
 			children = (
 				8CDC1A262BC802530088BAF1 /* Home.swift */,
 				8CDC1A2A2BC8D49A0088BAF1 /* MusicSearchView.swift */,
+				8CE7C9022BCD43B7003AEE9B /* WriteView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -360,6 +363,7 @@
 				8CDC1A2B2BC8D49A0088BAF1 /* MusicSearchView.swift in Sources */,
 				8CDC1A292BC8077D0088BAF1 /* OffsetKey.swift in Sources */,
 				8CDC1A212BC802170088BAF1 /* View+Extension.swift in Sources */,
+				8CE7C9032BCD43B7003AEE9B /* WriteView.swift in Sources */,
 				8CDC1A272BC802530088BAF1 /* Home.swift in Sources */,
 				8CE7C8FF2BCACF1B003AEE9B /* ImageManager.swift in Sources */,
 				8CDC1A1F2BC802050088BAF1 /* Date+Extension.swift in Sources */,

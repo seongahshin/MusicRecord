@@ -10,7 +10,7 @@ import MusicKit
 
 struct WriteView: View {
     let imageManager = ImageManager()
-    @Binding var song: Song?  // 이제 노래 정보를 Binding으로 받습니다.
+    var song: Song?
     @State var text: String
     
     @EnvironmentObject var sharedDateManager: SharedDataManager
@@ -26,27 +26,7 @@ struct WriteView: View {
     
     var body: some View {
         VStack(alignment: .leading, spacing: 20) {
-            Text(title)
-                .font(.title)
-                .fontWeight(.bold)
-                .multilineTextAlignment(.leading)
-                .padding(.top, 0)
-                .padding(.horizontal)
-            
-            Text(subTitle)
-                .font(.subheadline)
-                .foregroundColor(.secondary)
-                .padding([.leading, .bottom, .trailing])
-            
-            TextEditor(text: $text)
-                .frame(minHeight: 150)
-                .padding()
-                .overlay(
-                    RoundedRectangle(cornerRadius: 8)
-                        .stroke(.gray, lineWidth: 1)
-                )
-                .padding([.leading, .bottom, .trailing])
-                .font(.system(size: 14))
+            writeContent()
         }
         .toolbar {
             ToolbarItem(placement: .topBarTrailing) {
@@ -58,8 +38,33 @@ struct WriteView: View {
         }
     }
     
+    @ViewBuilder
+    func writeContent() -> some View {
+        Text(title)
+            .font(.title)
+            .fontWeight(.bold)
+            .multilineTextAlignment(.leading)
+            .padding(.top, 0)
+            .padding(.horizontal)
+        
+        Text(subTitle)
+            .font(.subheadline)
+            .foregroundColor(.secondary)
+            .padding([.leading, .bottom, .trailing])
+        
+        TextEditor(text: $text)
+            .frame(minHeight: 150)
+            .padding()
+            .overlay(
+                RoundedRectangle(cornerRadius: 8)
+                    .stroke(.gray, lineWidth: 1)
+            )
+            .padding([.leading, .bottom, .trailing])
+            .font(.system(size: 14))
+    }
+    
     func saveData() {
-        // sharedDateManager 상태 확인
+
         print("Selected Date: \(String(describing: sharedDateManager.selectedDate))")
         print("Selected Song Info: \(String(describing: sharedDateManager.selectedSongInfo))")
         
@@ -67,7 +72,7 @@ struct WriteView: View {
             DayRecord(id: UUID(), albumImage: imageManager.fetchArtworkURL(artwork: song!.artwork), songTitle: song!.title, singer: song!.artistName, detailRecord: text)
         ])
         print("저장된 데이터 확인: \(record)")
-        // CoreData Context에 데이터 저장
+    
         modelContext.insert(record)
         do {
             try modelContext.save()

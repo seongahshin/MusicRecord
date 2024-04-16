@@ -22,7 +22,6 @@ struct Home: View {
     @Query private var dateRecord: [Record]
     
     var recordArray: [Record] {
-        print("Record 전체 확인: \(dateRecord.count)")
         return dateRecord.filter { record in
             record.date == currentDate
         }
@@ -31,49 +30,41 @@ struct Home: View {
     var body: some View {
         VStack(spacing: 0 ,content: {
             HeaderView()
-            
-            if let songInfo = sharedDateManager.selectedSongInfo {
-                if !recordArray.isEmpty {
-                    // 현재 선택된 노래가 있는 상태이고 해당 날짜에 저장된 노래가 있는 상태
-                    let songInfo = recordArray[0].records[0]
-                    if let image = songInfo.albumImage {
-                        RecordContentView(songInfo: SongInfo(image: image, title: songInfo.songTitle, singer: songInfo.singer), selectedDate: $currentDate, recordText: songInfo.detailRecord)
-                    }
-                } else {
-                    // 현재 선택된 노래가 있는 상태이고 해당 날짜에 저장된 노래가 없는 상태
-//                    RecordContentView(songInfo: songInfo, selectedDate: $currentDate)
-                }
-                
-            } else {
-                if recordArray.isEmpty {
-                    // 현재 선택된 노래가 없는 상태이고 해당 날짜에 저장된 노래가 없는 상태
-                    noRecordContentView()
-                } else {
-                    // 현재 선택된 노래가 없는 상태이고 해당 날짜에 저장된 노래가 있ㄴ 상태
-                    let songInfo = recordArray[0].records[0]
-                    if let image = songInfo.albumImage {
-                        RecordContentView(songInfo: SongInfo(image: image, title: songInfo.songTitle, singer: songInfo.singer), selectedDate: $currentDate, recordText: songInfo.detailRecord)
-                    }
-                }
-                
-            }
+            selectRecordView()
         })
         .vSpacing(.top)
         .onAppear(perform: {
-            if weekSlider.isEmpty {
-                let currentWeek = Date().fetcWeek()
-                
-                if let firstDate = currentWeek.first?.date {
-                    weekSlider.append(firstDate.createPreviousWeek())
-                }
-                
-                weekSlider.append(currentWeek)
-                
-                if let lastDate = currentWeek.last?.date {
-                    weekSlider.append(lastDate.createNextWeek())
-                }
-            }
+            fetchDate()
         })
+    }
+    
+    func fetchDate() {
+        if weekSlider.isEmpty {
+            let currentWeek = Date().fetcWeek()
+            
+            if let firstDate = currentWeek.first?.date {
+                weekSlider.append(firstDate.createPreviousWeek())
+            }
+            
+            weekSlider.append(currentWeek)
+            
+            if let lastDate = currentWeek.last?.date {
+                weekSlider.append(lastDate.createNextWeek())
+            }
+        }
+    }
+    
+    @ViewBuilder
+    func selectRecordView() -> some View {
+        if !recordArray.isEmpty {
+            // 현재 선택된 노래가 있는 상태이고 해당 날짜에 저장된 노래가 있는 상태
+            let songInfo = recordArray[0].records[0]
+            if let image = songInfo.albumImage {
+                RecordContentView(songInfo: SongInfo(image: image, title: songInfo.songTitle, singer: songInfo.singer), selectedDate: $currentDate, recordText: songInfo.detailRecord)
+            }
+        } else {
+            noRecordContentView()
+        }
     }
     
     @ViewBuilder
@@ -213,35 +204,39 @@ struct RecordContentView: View {
                 Spacer()
                 saveButton()
             }
-
-            AsyncImage(url: URL(string: songInfo.image))
-                .frame(width: 200, height: 200)
-                .cornerRadius(20)
-                .clipped()
-
-            Text(songInfo.title)
-                .font(.title)
-                .fontWeight(.bold)
-                .padding(.top, 8)
-            
-            Text(songInfo.singer)
-                .font(.headline)
-                .foregroundColor(.secondary)
-                .padding(.bottom, 8)
-            
-            Text(recordText)
-                .font(.body) // 글꼴 크기 설정
-                .frame(maxWidth: .infinity, maxHeight: .infinity,alignment: .leading) // 최대 너비를 무한대로 설정하고 왼쪽 정렬
-                .padding() // 텍스트 주변에 패딩 추가
-                .background(Color.white) // 배경색을 흰색으로 설정
-                .overlay(
-                    RoundedRectangle(cornerRadius: 10) // 모서리가 둥근 사각형
-                        .stroke(Color.gray, lineWidth: 1) // 회색 테두리
-                        .shadow(color: .cyan, radius: 30)
-                )
-                .padding() // 외부 패딩 추가
+            contentView()
         }
         .padding()
+    }
+    
+    @ViewBuilder
+    func contentView() -> some View {
+        AsyncImage(url: URL(string: songInfo.image))
+            .frame(width: 200, height: 200)
+            .cornerRadius(20)
+            .clipped()
+
+        Text(songInfo.title)
+            .font(.title)
+            .fontWeight(.bold)
+            .padding(.top, 8)
+        
+        Text(songInfo.singer)
+            .font(.headline)
+            .foregroundColor(.secondary)
+            .padding(.bottom, 8)
+        
+        Text(recordText)
+            .font(.body) // 글꼴 크기 설정
+            .frame(maxWidth: .infinity, maxHeight: .infinity,alignment: .leading) // 최대 너비를 무한대로 설정하고 왼쪽 정렬
+            .padding() // 텍스트 주변에 패딩 추가
+            .background(Color.white) // 배경색을 흰색으로 설정
+            .overlay(
+                RoundedRectangle(cornerRadius: 10) // 모서리가 둥근 사각형
+                    .stroke(Color.gray, lineWidth: 1) // 회색 테두리
+                    .shadow(color: .cyan, radius: 30)
+            )
+            .padding() // 외부 패딩 추가
     }
     
     @ViewBuilder

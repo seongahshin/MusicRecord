@@ -21,7 +21,7 @@ struct Home: View {
     
     @Query private var dateRecord: [Record]
     
-    var recort: [Record] {
+    var recordArray: [Record] {
         print("Record 전체 확인: \(dateRecord.count)")
         return dateRecord.filter { record in
             record.date == currentDate
@@ -33,26 +33,26 @@ struct Home: View {
             HeaderView()
             
             if let songInfo = sharedDateManager.selectedSongInfo {
-                if !recort.isEmpty {
+                if !recordArray.isEmpty {
                     // 현재 선택된 노래가 있는 상태이고 해당 날짜에 저장된 노래가 있는 상태
-                    let songInfo = recort[0].records[0]
+                    let songInfo = recordArray[0].records[0]
                     if let image = songInfo.albumImage {
-                        RecordContentView(songInfo: SongInfo(image: image, title: songInfo.songTitle, singer: songInfo.singer), selectedDate: $currentDate)
+                        RecordContentView(songInfo: SongInfo(image: image, title: songInfo.songTitle, singer: songInfo.singer), selectedDate: $currentDate, recordText: songInfo.detailRecord)
                     }
                 } else {
                     // 현재 선택된 노래가 있는 상태이고 해당 날짜에 저장된 노래가 없는 상태
-                    RecordContentView(songInfo: songInfo, selectedDate: $currentDate)
+//                    RecordContentView(songInfo: songInfo, selectedDate: $currentDate)
                 }
                 
             } else {
-                if recort.isEmpty {
+                if recordArray.isEmpty {
                     // 현재 선택된 노래가 없는 상태이고 해당 날짜에 저장된 노래가 없는 상태
                     noRecordContentView()
                 } else {
                     // 현재 선택된 노래가 없는 상태이고 해당 날짜에 저장된 노래가 있ㄴ 상태
-                    let songInfo = recort[0].records[0]
+                    let songInfo = recordArray[0].records[0]
                     if let image = songInfo.albumImage {
-                        RecordContentView(songInfo: SongInfo(image: image, title: songInfo.songTitle, singer: songInfo.singer), selectedDate: $currentDate)
+                        RecordContentView(songInfo: SongInfo(image: image, title: songInfo.songTitle, singer: songInfo.singer), selectedDate: $currentDate, recordText: songInfo.detailRecord)
                     }
                 }
                 
@@ -205,6 +205,7 @@ struct RecordContentView: View {
     @Environment(\.modelContext) var modelContext
     @EnvironmentObject var sharedDateManager: SharedDataManager
     @Binding var selectedDate: String
+    var recordText: String
     
     var body: some View {
         VStack {
@@ -227,51 +228,35 @@ struct RecordContentView: View {
                 .font(.headline)
                 .foregroundColor(.secondary)
                 .padding(.bottom, 8)
-
-            Spacer()
-
-            TextEditor(text: $text)
-                .padding()
-                .border(Color.gray, width: 1)
-                .padding()
-//
-            Spacer()
+            
+            Text(recordText)
+                .font(.body) // 글꼴 크기 설정
+                .frame(maxWidth: .infinity, maxHeight: .infinity,alignment: .leading) // 최대 너비를 무한대로 설정하고 왼쪽 정렬
+                .padding() // 텍스트 주변에 패딩 추가
+                .background(Color.white) // 배경색을 흰색으로 설정
+                .overlay(
+                    RoundedRectangle(cornerRadius: 10) // 모서리가 둥근 사각형
+                        .stroke(Color.gray, lineWidth: 1) // 회색 테두리
+                        .shadow(color: .cyan, radius: 30)
+                )
+                .padding() // 외부 패딩 추가
         }
         .padding()
     }
     
     @ViewBuilder
     func saveButton() -> some View {
-        Button("저장") {
-
-            // sharedDateManager 상태 확인
-            print("Selected Date: \(String(describing: sharedDateManager.selectedDate))")
-            print("Selected Song Info: \(String(describing: sharedDateManager.selectedSongInfo))")
-
-            if let song = sharedDateManager.selectedSongInfo {
-                let record = Record(date: selectedDate, records: [
-                    DayRecord(id: UUID(), albumImage: song.image, songTitle: song.title, singer: song.singer, detailRecord: text)
-                ])
-                print("저장된 데이터 확인: \(record)")
-                // CoreData Context에 데이터 저장
-                modelContext.insert(record)
-                do {
-                    try modelContext.save()
-                    print(modelContext.sqliteCommand)
-                    print("데이터 저장 완료")
-                } catch {
-                    print("데이터 저장 실패: \(error)")
-                }
-            } else {
-                print("필요한 데이터가 없어 저장을 진행하지 못했습니다.")
-            }
-            
-            sharedDateManager.selectedSongInfo = nil
+        Button(action: {
+            // 여기에 버튼이 클릭되었을 때 수행할 액션을 추가
+        }) {
+            Image(systemName: "ellipsis")
+                .resizable()
+                .scaledToFit()
+                .frame(width: 15, height: 15)
+                .padding(10)
+                .foregroundColor(.gray)
         }
-        .bold()
-        .padding(.horizontal, 10)
-        .buttonStyle(DefaultButtonStyle())
-        .foregroundStyle(.red)
+
     }
 
 }

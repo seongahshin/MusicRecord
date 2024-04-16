@@ -9,14 +9,22 @@ import SwiftUI
 import MusicKit
 
 struct WriteView: View {
-    var song: Song?
-    
+    let imageManager = ImageManager()
+    @Binding var song: Song?  // 이제 노래 정보를 Binding으로 받습니다.
     @State var text: String
     
+    @EnvironmentObject var sharedDateManager: SharedDataManager
+    @Environment(\.modelContext) var modelContext
+    
+    var title: String {
+        "\(song?.title ?? "제목 없음")와\n함께한 오늘,\n어떤 이야기가 있었나요?"
+    }
+    
+    var subTitle: String {
+        "오늘의 좋았던 점, 힘들었던 점, 어떤 이야기든 좋아요.\n세상에 의미없는 이야기란 존재하지 않는답니다!"
+    }
+    
     var body: some View {
-        let title = "\(String(describing: song!.title))와\n함께한 오늘,\n어떤 이야기가 있었나요?"
-        let subTitle = "오늘의 좋았던 점, 힘들었던 점, 어떤 이야기든 좋아요.\n세상에 의미없는 이야기란 존재하지 않는답니다!"
-        
         VStack(alignment: .leading, spacing: 20) {
             Text(title)
                 .font(.title)
@@ -43,15 +51,38 @@ struct WriteView: View {
         .toolbar {
             ToolbarItem(placement: .topBarTrailing) {
                 Button("저장") {
-                    // 일기 저장 로직을 여기에 추가하세요.
+                    saveData()
                     print("Diary entry saved.")
                 }
             }
         }
-        
     }
+    
+    func saveData() {
+        // sharedDateManager 상태 확인
+        print("Selected Date: \(String(describing: sharedDateManager.selectedDate))")
+        print("Selected Song Info: \(String(describing: sharedDateManager.selectedSongInfo))")
+        
+        let record = Record(date: sharedDateManager.selectedDate ?? "", records: [
+            DayRecord(id: UUID(), albumImage: imageManager.fetchArtworkURL(artwork: song!.artwork), songTitle: song!.title, singer: song!.artistName, detailRecord: text)
+        ])
+        print("저장된 데이터 확인: \(record)")
+        // CoreData Context에 데이터 저장
+        modelContext.insert(record)
+        do {
+            try modelContext.save()
+            print(modelContext.sqliteCommand)
+            print("데이터 저장 완료")
+        } catch {
+            print("데이터 저장 실패: \(error)")
+        }
+        
+        initSelectedSongInfo()
+    }
+    
+    func initSelectedSongInfo() {
+        sharedDateManager.selectedSongInfo = nil
+    }
+    
+    
 }
-
-//#Preview {
-//    WriteView()
-//}

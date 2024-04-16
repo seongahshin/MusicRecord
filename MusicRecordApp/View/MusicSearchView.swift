@@ -37,15 +37,15 @@ struct MusicSearchView: View {
                         }
                     }
                     .onTapGesture {
+                        print("선택된 노래: \(song)")
                         selectedSong = song  // 선택한 노래 정보를 저장
                         navigateToWriteView = true  // 네비게이션 링크 활성화
                     }
                 }
                 .listStyle(PlainListStyle())
-
-
+                
                 NavigationLink(
-                    destination: WriteView(song: selectedSong, text: ""),
+                    destination: WriteView(song: $selectedSong, text: ""),
                     isActive: $navigateToWriteView
                 ) {
                     EmptyView()
@@ -63,3 +63,4 @@ struct MusicSearchView: View {
         }
     }
 }
+

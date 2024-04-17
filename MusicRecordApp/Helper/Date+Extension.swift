@@ -60,10 +60,35 @@ extension Date {
         return fetcWeek(previousDate)
     }
     
+    /// 지금은 안쓰고 있긴 함 but 언젠가 사용할 일이 있을 것 ..
+//    func getTimeZoneDate() -> String {
+//        let now = Date() // 시스템 시간대를 기준으로 현재 시간
+//        let dateFormatter = DateFormatter()
+//        dateFormatter.timeZone = TimeZone.current // 현재 시스템 시간대 사용
+//        dateFormatter.dateStyle = .medium
+//        dateFormatter.timeStyle = .medium
+//
+//        let dateString = dateFormatter.string(from: now)
+//        return dateString
+//    }
+    
+    /// 데이터에 저장하는 쿼리명
+    func formattedDate() -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        return dateFormatter.string(from: self)
+    }
+    
+    /// 월로 저장할 때 쓰일듯
+//    func formatToMonth() -> String {
+//        let dateFormatter = DateFormatter()
+//        dateFormatter.dateFormat = "MM"
+//        return dateFormatter.string(from: self)
+//    }
+    
     struct WeekDay: Identifiable {
         var id: UUID = .init()
         var date: Date
-        
     }
 }
 

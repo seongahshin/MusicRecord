@@ -6,53 +6,75 @@
 //
 
 import SwiftUI
+import MusicKit
+import SwiftData
 
 struct Home: View {
-    /// TaskManager Properties
-    @State private var currentDate: Date = .init()
+    @EnvironmentObject var sharedDateManager: SharedDataManager
+    
+    @State private var currentDate: String = Date().formattedDate()
     @State private var weekSlider: [[Date.WeekDay]] = []
     @State private var currentWeekIndex: Int = 1
     @State private var createWeek: Bool = false
     /// Animation Namespace
     @Namespace private var animation
     
+    @Query private var dateRecord: [Record]
+    
+    var recordArray: [Record] {
+        return dateRecord.filter { record in
+            record.date == currentDate
+        }
+    }
+    
     var body: some View {
-        VStack(alignment: .leading, spacing: 0 ,content: {
+        VStack(spacing: 0 ,content: {
             HeaderView()
-            noRecordContentView()
+            selectRecordView()
         })
         .vSpacing(.top)
         .onAppear(perform: {
-            if weekSlider.isEmpty {
-                let currentWeek = Date().fetcWeek()
-                
-                if let firstDate = currentWeek.first?.date {
-                    weekSlider.append(firstDate.createPreviousWeek())
-                }
-                
-                weekSlider.append(currentWeek)
-                
-                if let lastDate = currentWeek.last?.date {
-                    weekSlider.append(lastDate.createNextWeek())
-                }
-            }
+            fetchDate()
         })
+    }
+    
+    func fetchDate() {
+        if weekSlider.isEmpty {
+            let currentWeek = Date().fetcWeek()
+            
+            if let firstDate = currentWeek.first?.date {
+                weekSlider.append(firstDate.createPreviousWeek())
+            }
+            
+            weekSlider.append(currentWeek)
+            
+            if let lastDate = currentWeek.last?.date {
+                weekSlider.append(lastDate.createNextWeek())
+            }
+        }
+    }
+    
+    @ViewBuilder
+    func selectRecordView() -> some View {
+        if !recordArray.isEmpty {
+            // 현재 선택된 노래가 있는 상태이고 해당 날짜에 저장된 노래가 있는 상태
+            let songInfo = recordArray[0].records[0]
+            if let image = songInfo.albumImage {
+                RecordContentView(songInfo: SongInfo(image: image, title: songInfo.songTitle, singer: songInfo.singer), selectedDate: $currentDate, recordText: songInfo.detailRecord)
+            }
+        } else {
+            noRecordContentView()
+        }
     }
     
     @ViewBuilder
     func HeaderView() -> some View {
         VStack(alignment: .leading, spacing: 6) {
             HStack(spacing: 5) {
-                Text(currentDate.format("MMMM"))
+                Text(currentDate)
                     .foregroundStyle(.blue)
             }
             .font(.title.bold())
-            
-            Text(currentDate.formatted(date: .complete, time: .omitted))
-                .font(.callout)
-                .fontWeight(.semibold)
-                .textScale(.secondary)
-                .foregroundStyle(.gray)
             
             /// Week Slider
             TabView(selection: $currentWeekIndex) {
@@ -94,10 +116,10 @@ struct Home: View {
                         .font(.callout)
                         .fontWeight(.bold)
                         .textScale(.secondary)
-                        .foregroundStyle(isSameDate(day.date, currentDate) ? .white : .gray)
+                        .foregroundStyle(isSameDate(day.date.formattedDate(), currentDate) ? .white : .gray)
                         .frame(width: 35, height: 35)
                         .background(content: {
-                            if isSameDate(day.date, currentDate) {
+                            if isSameDate(day.date.formattedDate(), currentDate) {
                                 Circle()
                                     .fill(.blue)
                                     .matchedGeometryEffect(id: "TABINDICATOR", in: animation)
@@ -121,7 +143,9 @@ struct Home: View {
                 .onTapGesture {
                     /// Updating Current Date
                     withAnimation(.snappy) {
-                        currentDate = day.date
+                        sharedDateManager.selectedDate = day.date.formattedDate()
+                        print("날짜 클릭했을 때 date: \(day.date)")
+                        currentDate = day.date.formattedDate()
                     }
                 }
             }
@@ -134,7 +158,6 @@ struct Home: View {
                     .onPreferenceChange(OffsetKey.self) { value in
                         /// When the Offset reasches 15 and if the createWeek is toggled then simply generating next set of week
                         if value.rounded() == 15 && createWeek {
-//                            print("Generate")
                             paginateWeek()
                             createWeek = false
                         }
@@ -163,6 +186,100 @@ struct Home: View {
         }
     }
     
+}
+
+struct RecordContentView: View {
+    let imageManager = ImageManager()
+    var songInfo: SongInfo
+    
+    @State private var text: String = ""
+    @State private var showingAlert = false
+    @Environment(\.modelContext) var modelContext
+    @EnvironmentObject var sharedDateManager: SharedDataManager
+    @Binding var selectedDate: String
+    
+    @Query private var dateRecord: [Record]
+    
+    var recordArray: [Record] {
+        return dateRecord.filter { record in
+            record.date == selectedDate
+        }
+    }
+    
+    var recordText: String
+    
+    var body: some View {
+        VStack {
+            HStack {
+                Spacer()
+                menuButton()
+            }
+            contentView()
+        }
+        .alert("정말 삭제하시겠습니까?", isPresented: $showingAlert) {
+            Button("아니오", role: .cancel) {}
+            Button("네", role: .destructive) {
+                deleteRecord()
+            }
+        }
+        .padding()
+    }
+    
+    @ViewBuilder
+    func contentView() -> some View {
+        AsyncImage(url: URL(string: songInfo.image))
+            .frame(width: 200, height: 200)
+            .cornerRadius(20)
+            .clipped()
+
+        Text(songInfo.title)
+            .font(.title)
+            .fontWeight(.bold)
+            .padding(.top, 8)
+        
+        Text(songInfo.singer)
+            .font(.headline)
+            .foregroundColor(.secondary)
+            .padding(.bottom, 8)
+        
+        Text(recordText)
+            .font(.body) // 글꼴 크기 설정
+            .frame(maxWidth: .infinity, maxHeight: .infinity,alignment: .leading) // 최대 너비를 무한대로 설정하고 왼쪽 정렬
+            .padding() // 텍스트 주변에 패딩 추가
+            .background(Color.white) // 배경색을 흰색으로 설정
+            .overlay(
+                RoundedRectangle(cornerRadius: 10) // 모서리가 둥근 사각형
+                    .stroke(Color.gray, lineWidth: 1) // 회색 테두리
+                    .shadow(color: .cyan, radius: 30)
+            )
+            .padding() // 외부 패딩 추가
+    }
+    
+    @ViewBuilder
+    func menuButton() -> some View {
+        Menu {
+            Button(role: .destructive, action: showAlert) {
+                Label("삭제하기", systemImage: "trash")
+            }
+        } label: {
+            Image(systemName: "ellipsis")
+                .resizable()
+                .scaledToFit()
+                .frame(width: 15, height: 15)
+                .padding(10)
+                .foregroundColor(.gray)
+        }
+    }
+    
+    func showAlert() {
+        showingAlert = true
+    }
+
+    func deleteRecord() {
+        
+        modelContext.delete(recordArray[0])
+    }
+
 }
 
 struct noRecordContentView: View {
@@ -201,12 +318,12 @@ struct noRecordContentView: View {
             .shadow(color: .gray, radius: 3, x: 0, y:0)
         )
         .sheet(isPresented: $showingModal) {
-            MusicSearchView()
+            MusicSearchView(isPresented: $showingModal)
         }
     }
 }
 
-#Preview {
-    Home()
-}
+//#Preview {
+//    Home()
+//}
 

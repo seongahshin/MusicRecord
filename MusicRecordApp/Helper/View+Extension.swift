@@ -23,8 +23,13 @@ extension View {
     }
     
     /// Checking Two dates are same
-    func isSameDate(_ date1: Date, _ date2: Date) -> Bool {
-        return Calendar.current.isDate(date1, inSameDayAs: date2)
+    func isSameDate(_ date1: String, _ date2: String) -> Bool {
+        if date1 == date2 {
+            return true
+        } else {
+            return false
+        }
+        //        return Calendar.current.isDate(date1, inSameDayAs: date2)
     }
 }
 

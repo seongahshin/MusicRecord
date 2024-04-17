@@ -22,20 +22,19 @@ class MusicSearchManager: ObservableObject {
             }
             return
         }
-
+        
         do {
             var searchRequest = MusicCatalogSearchRequest(term: searchTerm, types: [Song.self])
             searchRequest.limit = 5
-
+            
             let searchResponse = try await searchRequest.response()
             await MainActor.run {
                 self.songs = searchResponse.songs.compactMap { $0 }  // 응답에서 곡 정보를 추출하여 저장
             }
-            print("result: \(songs)")
         } catch {
             print("Error during the search: \(error)")
         }
     }
-
+    
 }
 

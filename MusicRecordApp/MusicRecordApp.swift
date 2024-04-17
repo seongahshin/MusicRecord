@@ -14,11 +14,11 @@ struct MusicRecordApp: App {
     /// SwiftData modelContainer 구성
     var modelContainer: ModelContainer = {
         let schema = Schema([Record.self, DayRecord.self])
-    let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
+        let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
         
-    do {
-        return try ModelContainer(for: schema, configurations:
-                                    [modelConfiguration])
+        do {
+            return try ModelContainer(for: schema, configurations:
+                                        [modelConfiguration])
         } catch {
             fatalError("Could not create ModelContainer: \(error)")
         }

@@ -21,7 +21,7 @@ class MusicAuthorizationManager {
             }
         }
     }
-
+    
     func requestMediaLibraryAccess() {
         let controller = SKCloudServiceController()
         controller.requestCapabilities { (capabilities, error) in

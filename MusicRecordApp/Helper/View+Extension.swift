@@ -29,7 +29,7 @@ extension View {
         } else {
             return false
         }
-//        return Calendar.current.isDate(date1, inSameDayAs: date2)
+        //        return Calendar.current.isDate(date1, inSameDayAs: date2)
     }
 }
 

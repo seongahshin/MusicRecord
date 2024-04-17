@@ -9,7 +9,7 @@ import Foundation
 import MusicKit
 
 class ImageManager {
-
+    
     func fetchArtworkURL(artwork: Artwork?) -> String? {
         guard let artwork = artwork else {
             print("Artwork 정보가 없습니다.")
@@ -21,6 +21,6 @@ class ImageManager {
         
         return artwork.url(width: width, height: height)?.absoluteString
     }
-
-
+    
+    
 }

@@ -64,7 +64,7 @@ struct WriteView: View {
     }
     
     func saveData() {
-
+        
         print("Selected Date: \(String(describing: sharedDateManager.selectedDate))")
         print("Selected Song Info: \(String(describing: sharedDateManager.selectedSongInfo))")
         
@@ -72,7 +72,7 @@ struct WriteView: View {
             DayRecord(id: UUID(), albumImage: imageManager.fetchArtworkURL(artwork: song!.artwork), songTitle: song!.title, singer: song!.artistName, detailRecord: text)
         ])
         print("저장된 데이터 확인: \(record)")
-    
+        
         modelContext.insert(record)
         do {
             try modelContext.save()

@@ -16,7 +16,7 @@ struct MusicSearchView: View {
     @EnvironmentObject var sharedDateManager: SharedDataManager
     @ObservedObject private var searchManager = MusicSearchManager.shared
     @State private var navigateToWriteView = false
-
+    
     var body: some View {
         NavigationStack {
             VStack {

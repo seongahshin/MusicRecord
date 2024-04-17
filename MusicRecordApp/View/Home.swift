@@ -88,7 +88,7 @@ struct Home: View {
             .padding(.horizontal, -15)
             .tabViewStyle(.page(indexDisplayMode: .never))
             .frame(height: 90)
-              
+            
         }
         .padding(15)
         .background(.white)
@@ -231,7 +231,7 @@ struct RecordContentView: View {
             .frame(width: 200, height: 200)
             .cornerRadius(20)
             .clipped()
-
+        
         Text(songInfo.title)
             .font(.title)
             .fontWeight(.bold)
@@ -274,12 +274,11 @@ struct RecordContentView: View {
     func showAlert() {
         showingAlert = true
     }
-
+    
     func deleteRecord() {
-        
         modelContext.delete(recordArray[0])
     }
-
+    
 }
 
 struct noRecordContentView: View {

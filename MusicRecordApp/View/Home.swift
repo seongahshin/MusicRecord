@@ -193,18 +193,34 @@ struct RecordContentView: View {
     var songInfo: SongInfo
     
     @State private var text: String = ""
+    @State private var showingAlert = false
     @Environment(\.modelContext) var modelContext
     @EnvironmentObject var sharedDateManager: SharedDataManager
     @Binding var selectedDate: String
+    
+    @Query private var dateRecord: [Record]
+    
+    var recordArray: [Record] {
+        return dateRecord.filter { record in
+            record.date == selectedDate
+        }
+    }
+    
     var recordText: String
     
     var body: some View {
         VStack {
             HStack {
                 Spacer()
-                saveButton()
+                menuButton()
             }
             contentView()
+        }
+        .alert("정말 삭제하시겠습니까?", isPresented: $showingAlert) {
+            Button("아니오", role: .cancel) {}
+            Button("네", role: .destructive) {
+                deleteRecord()
+            }
         }
         .padding()
     }
@@ -240,10 +256,12 @@ struct RecordContentView: View {
     }
     
     @ViewBuilder
-    func saveButton() -> some View {
-        Button(action: {
-            // 여기에 버튼이 클릭되었을 때 수행할 액션을 추가
-        }) {
+    func menuButton() -> some View {
+        Menu {
+            Button(role: .destructive, action: showAlert) {
+                Label("삭제하기", systemImage: "trash")
+            }
+        } label: {
             Image(systemName: "ellipsis")
                 .resizable()
                 .scaledToFit()
@@ -251,7 +269,15 @@ struct RecordContentView: View {
                 .padding(10)
                 .foregroundColor(.gray)
         }
+    }
+    
+    func showAlert() {
+        showingAlert = true
+    }
 
+    func deleteRecord() {
+        
+        modelContext.delete(recordArray[0])
     }
 
 }
@@ -297,7 +323,7 @@ struct noRecordContentView: View {
     }
 }
 
-#Preview {
-    Home()
-}
+//#Preview {
+//    Home()
+//}
 

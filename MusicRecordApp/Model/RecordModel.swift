@@ -30,7 +30,7 @@ class DayRecord {
 @Model
 class Record {
     @Attribute(.unique) var date: String
-    @Relationship var records: [DayRecord]
+    @Relationship(deleteRule: .nullify) var records: [DayRecord]
     
     init(date: String, records: [DayRecord]) {
         self.date = date

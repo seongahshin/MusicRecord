@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8CDC19F12BC801C30088BAF1 /* MusicRecordAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CDC19F02BC801C30088BAF1 /* MusicRecordAppApp.swift */; };
+		8CDC19F12BC801C30088BAF1 /* MusicRecordApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CDC19F02BC801C30088BAF1 /* MusicRecordApp.swift */; };
 		8CDC19F52BC801C40088BAF1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8CDC19F42BC801C40088BAF1 /* Assets.xcassets */; };
 		8CDC19F92BC801C40088BAF1 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8CDC19F82BC801C40088BAF1 /* Preview Assets.xcassets */; };
 		8CDC1A032BC801C50088BAF1 /* MusicRecordAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CDC1A022BC801C50088BAF1 /* MusicRecordAppTests.swift */; };
@@ -15,13 +15,16 @@
 		8CDC1A0F2BC801C50088BAF1 /* MusicRecordAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CDC1A0E2BC801C50088BAF1 /* MusicRecordAppUITestsLaunchTests.swift */; };
 		8CDC1A1F2BC802050088BAF1 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CDC1A1E2BC802050088BAF1 /* Date+Extension.swift */; };
 		8CDC1A212BC802170088BAF1 /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CDC1A202BC802170088BAF1 /* View+Extension.swift */; };
-		8CDC1A242BC802310088BAF1 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CDC1A232BC802310088BAF1 /* Task.swift */; };
 		8CDC1A272BC802530088BAF1 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CDC1A262BC802530088BAF1 /* Home.swift */; };
 		8CDC1A292BC8077D0088BAF1 /* OffsetKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CDC1A282BC8077D0088BAF1 /* OffsetKey.swift */; };
 		8CDC1A2B2BC8D49A0088BAF1 /* MusicSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CDC1A2A2BC8D49A0088BAF1 /* MusicSearchView.swift */; };
 		8CDC1A2E2BC8DEAD0088BAF1 /* MusicSearchManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CDC1A2D2BC8DEAD0088BAF1 /* MusicSearchManager.swift */; };
 		8CDC1A312BC8DFBA0088BAF1 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 8CDC1A302BC8DFBA0088BAF1 /* Alamofire */; };
 		8CE7C8F42BCA542E003AEE9B /* MusicAuthorizationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CE7C8F32BCA542E003AEE9B /* MusicAuthorizationManager.swift */; };
+		8CE7C8F92BCA7334003AEE9B /* RecordModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CE7C8F82BCA7334003AEE9B /* RecordModel.swift */; };
+		8CE7C8FC2BCA7AF5003AEE9B /* SharedDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CE7C8FB2BCA7AF5003AEE9B /* SharedDataManager.swift */; };
+		8CE7C8FF2BCACF1B003AEE9B /* ImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CE7C8FE2BCACF1B003AEE9B /* ImageManager.swift */; };
+		8CE7C9032BCD43B7003AEE9B /* WriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CE7C9022BCD43B7003AEE9B /* WriteView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,7 +46,7 @@
 
 /* Begin PBXFileReference section */
 		8CDC19ED2BC801C30088BAF1 /* MusicRecordApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MusicRecordApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		8CDC19F02BC801C30088BAF1 /* MusicRecordAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicRecordAppApp.swift; sourceTree = "<group>"; };
+		8CDC19F02BC801C30088BAF1 /* MusicRecordApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicRecordApp.swift; sourceTree = "<group>"; };
 		8CDC19F42BC801C40088BAF1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8CDC19F62BC801C40088BAF1 /* MusicRecordApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MusicRecordApp.entitlements; sourceTree = "<group>"; };
 		8CDC19F82BC801C40088BAF1 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -54,13 +57,16 @@
 		8CDC1A0E2BC801C50088BAF1 /* MusicRecordAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicRecordAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		8CDC1A1E2BC802050088BAF1 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		8CDC1A202BC802170088BAF1 /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
-		8CDC1A232BC802310088BAF1 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		8CDC1A262BC802530088BAF1 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		8CDC1A282BC8077D0088BAF1 /* OffsetKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OffsetKey.swift; sourceTree = "<group>"; };
 		8CDC1A2A2BC8D49A0088BAF1 /* MusicSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicSearchView.swift; sourceTree = "<group>"; };
 		8CDC1A2D2BC8DEAD0088BAF1 /* MusicSearchManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicSearchManager.swift; sourceTree = "<group>"; };
 		8CDC1A322BC95F120088BAF1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		8CE7C8F32BCA542E003AEE9B /* MusicAuthorizationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicAuthorizationManager.swift; sourceTree = "<group>"; };
+		8CE7C8F82BCA7334003AEE9B /* RecordModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordModel.swift; sourceTree = "<group>"; };
+		8CE7C8FB2BCA7AF5003AEE9B /* SharedDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedDataManager.swift; sourceTree = "<group>"; };
+		8CE7C8FE2BCACF1B003AEE9B /* ImageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageManager.swift; sourceTree = "<group>"; };
+		8CE7C9022BCD43B7003AEE9B /* WriteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,7 +123,7 @@
 				8CDC1A252BC8024B0088BAF1 /* View */,
 				8CDC1A222BC802290088BAF1 /* Model */,
 				8CDC1A1D2BC801F20088BAF1 /* Helper */,
-				8CDC19F02BC801C30088BAF1 /* MusicRecordAppApp.swift */,
+				8CDC19F02BC801C30088BAF1 /* MusicRecordApp.swift */,
 				8CDC19F42BC801C40088BAF1 /* Assets.xcassets */,
 				8CDC19F62BC801C40088BAF1 /* MusicRecordApp.entitlements */,
 				8CDC19F72BC801C40088BAF1 /* Preview Content */,
@@ -163,7 +169,7 @@
 		8CDC1A222BC802290088BAF1 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				8CDC1A232BC802310088BAF1 /* Task.swift */,
+				8CE7C8F82BCA7334003AEE9B /* RecordModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -173,6 +179,7 @@
 			children = (
 				8CDC1A262BC802530088BAF1 /* Home.swift */,
 				8CDC1A2A2BC8D49A0088BAF1 /* MusicSearchView.swift */,
+				8CE7C9022BCD43B7003AEE9B /* WriteView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -180,6 +187,8 @@
 		8CDC1A2C2BC8DE9B0088BAF1 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
+				8CE7C8FD2BCACF05003AEE9B /* Image */,
+				8CE7C8FA2BCA7AE1003AEE9B /* Date */,
 				8CE7C8F22BCA53B1003AEE9B /* Music */,
 			);
 			path = Manager;
@@ -192,6 +201,22 @@
 				8CE7C8F32BCA542E003AEE9B /* MusicAuthorizationManager.swift */,
 			);
 			path = Music;
+			sourceTree = "<group>";
+		};
+		8CE7C8FA2BCA7AE1003AEE9B /* Date */ = {
+			isa = PBXGroup;
+			children = (
+				8CE7C8FB2BCA7AF5003AEE9B /* SharedDataManager.swift */,
+			);
+			path = Date;
+			sourceTree = "<group>";
+		};
+		8CE7C8FD2BCACF05003AEE9B /* Image */ = {
+			isa = PBXGroup;
+			children = (
+				8CE7C8FE2BCACF1B003AEE9B /* ImageManager.swift */,
+			);
+			path = Image;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -330,14 +355,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8CE7C8FC2BCA7AF5003AEE9B /* SharedDataManager.swift in Sources */,
 				8CDC1A2E2BC8DEAD0088BAF1 /* MusicSearchManager.swift in Sources */,
 				8CE7C8F42BCA542E003AEE9B /* MusicAuthorizationManager.swift in Sources */,
-				8CDC19F12BC801C30088BAF1 /* MusicRecordAppApp.swift in Sources */,
+				8CE7C8F92BCA7334003AEE9B /* RecordModel.swift in Sources */,
+				8CDC19F12BC801C30088BAF1 /* MusicRecordApp.swift in Sources */,
 				8CDC1A2B2BC8D49A0088BAF1 /* MusicSearchView.swift in Sources */,
-				8CDC1A242BC802310088BAF1 /* Task.swift in Sources */,
 				8CDC1A292BC8077D0088BAF1 /* OffsetKey.swift in Sources */,
 				8CDC1A212BC802170088BAF1 /* View+Extension.swift in Sources */,
+				8CE7C9032BCD43B7003AEE9B /* WriteView.swift in Sources */,
 				8CDC1A272BC802530088BAF1 /* Home.swift in Sources */,
+				8CE7C8FF2BCACF1B003AEE9B /* ImageManager.swift in Sources */,
 				8CDC1A1F2BC802050088BAF1 /* Date+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

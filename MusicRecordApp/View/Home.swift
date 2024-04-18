@@ -34,6 +34,7 @@ struct Home: View {
         })
         .vSpacing(.top)
         .onAppear(perform: {
+            sharedDateManager.selectedDate = Date().formattedDate()
             fetchDate()
         })
     }
@@ -60,7 +61,7 @@ struct Home: View {
             // 현재 선택된 노래가 있는 상태이고 해당 날짜에 저장된 노래가 있는 상태
             let songInfo = recordArray[0].records[0]
             if let image = songInfo.albumImage {
-                RecordContentView(songInfo: SongInfo(image: image, title: songInfo.songTitle, singer: songInfo.singer), selectedDate: $currentDate, recordText: songInfo.detailRecord)
+                RecordContentView(songInfo: SongInfo(image: image, title: songInfo.songTitle, singer: songInfo.singer, id: songInfo.songID), selectedDate: $currentDate, recordText: songInfo.detailRecord)
             }
         } else {
             noRecordContentView()
@@ -194,6 +195,7 @@ struct RecordContentView: View {
     
     @State private var text: String = ""
     @State private var showingAlert = false
+    @State private var isPlaying = false
     @Environment(\.modelContext) var modelContext
     @EnvironmentObject var sharedDateManager: SharedDataManager
     @Binding var selectedDate: String
@@ -227,10 +229,36 @@ struct RecordContentView: View {
     
     @ViewBuilder
     func contentView() -> some View {
-        AsyncImage(url: URL(string: songInfo.image))
-            .frame(width: 200, height: 200)
-            .cornerRadius(20)
-            .clipped()
+        
+        ZStack {
+            
+            AsyncImage(url: URL(string: songInfo.image))
+                .frame(width: 200, height: 200)
+                .cornerRadius(20)
+                .clipped()
+            
+            Button {
+                playToggle()
+            } label: {
+                if songInfo.id == sharedDateManager.nowPlayingID {
+                    Image(systemName: "pause.circle.fill")
+                        .font(.system(size: 50)) // 아이콘 크기 조절
+                        .foregroundColor(.white) // 아이콘 색상
+                        .background(Color.black.opacity(0.4)) // 투명한 검은색 배경
+                        .clipShape(Circle()) // 원형으로 클리핑
+                } else {
+                    Image(systemName: "play.circle.fill")
+                        .font(.system(size: 50)) // 아이콘 크기 조절
+                        .foregroundColor(.white) // 아이콘 색상
+                        .background(Color.black.opacity(0.4)) // 투명한 검은색 배경
+                        .clipShape(Circle()) // 원형으로 클리핑
+                }
+                
+            }
+            
+            
+        }
+>>>>>>> Feature/Musickit
         
         Text(songInfo.title)
             .font(.title)
@@ -253,6 +281,19 @@ struct RecordContentView: View {
                     .shadow(color: .cyan, radius: 30)
             )
             .padding() // 외부 패딩 추가
+    }
+    
+    func playToggle() {
+        if !isPlaying {
+            MusicPlayerManager.shared.playMusic(by: songInfo.id)
+            sharedDateManager.nowPlayingID = songInfo.id
+//            print("\(songInfo.id), \(sharedDateManager.nowPlayingID)")
+        } else {
+            MusicPlayerManager.shared.pauseMusic(by: songInfo.id)
+            sharedDateManager.nowPlayingID = ""
+//            print("\(songInfo.id), \(MusicPlayerManager.shared.nowPlayingID)")
+        }
+        isPlaying.toggle()
     }
     
     @ViewBuilder

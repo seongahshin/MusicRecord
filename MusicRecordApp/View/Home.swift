@@ -258,7 +258,6 @@ struct RecordContentView: View {
             
             
         }
->>>>>>> Feature/Musickit
         
         Text(songInfo.title)
             .font(.title)

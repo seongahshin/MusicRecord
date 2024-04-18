@@ -14,13 +14,15 @@ import SwiftUI
 class DayRecord {
     @Attribute(.unique) var id: UUID = UUID()
     var albumImage: String?
+    var songID: String
     var songTitle: String
     var singer: String
     var detailRecord: String
     
-    init(id: UUID, albumImage: String? = nil, songTitle: String, singer: String, detailRecord: String) {
+    init(id: UUID, albumImage: String? = nil, songID: String, songTitle: String, singer: String, detailRecord: String) {
         self.id = id
         self.albumImage = albumImage
+        self.songID = songID
         self.songTitle = songTitle
         self.singer = singer
         self.detailRecord = detailRecord

@@ -7,7 +7,6 @@
 
 import Foundation
 import MusicKit
-import Alamofire
 
 class MusicSearchManager: ObservableObject {
     @Published var songs: [Song] = []

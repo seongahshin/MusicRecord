@@ -16,6 +16,7 @@ class ImageManager {
             return nil
         }
         
+        /// ✍️ Mark - 고정값으로 주는 것이 맞을까
         let width = 200
         let height = 200
         

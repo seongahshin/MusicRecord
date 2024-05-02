@@ -63,6 +63,11 @@ struct WriteView: View {
             .font(.system(size: 14))
     }
     
+    
+}
+
+extension WriteView {
+    
     func saveData() {
         
         print("Selected Date: \(String(describing: sharedDateManager.selectedDate))")
@@ -88,6 +93,4 @@ struct WriteView: View {
     func initSelectedSongInfo() {
         sharedDateManager.selectedSongInfo = nil
     }
-    
-    
 }

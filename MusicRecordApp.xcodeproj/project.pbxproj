@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8CCFD0402BE37E370059EF94 /* RecordContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CCFD03F2BE37E370059EF94 /* RecordContentView.swift */; };
+		8CCFD0422BE37E680059EF94 /* NoRecordContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CCFD0412BE37E680059EF94 /* NoRecordContentView.swift */; };
 		8CDC19F12BC801C30088BAF1 /* MusicRecordApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CDC19F02BC801C30088BAF1 /* MusicRecordApp.swift */; };
 		8CDC19F52BC801C40088BAF1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8CDC19F42BC801C40088BAF1 /* Assets.xcassets */; };
 		8CDC19F92BC801C40088BAF1 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8CDC19F82BC801C40088BAF1 /* Preview Assets.xcassets */; };
@@ -46,6 +48,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8CCFD03F2BE37E370059EF94 /* RecordContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordContentView.swift; sourceTree = "<group>"; };
+		8CCFD0412BE37E680059EF94 /* NoRecordContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoRecordContentView.swift; sourceTree = "<group>"; };
 		8CDC19ED2BC801C30088BAF1 /* MusicRecordApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MusicRecordApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CDC19F02BC801C30088BAF1 /* MusicRecordApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicRecordApp.swift; sourceTree = "<group>"; };
 		8CDC19F42BC801C40088BAF1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -97,6 +101,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8CCFD03E2BE37E050059EF94 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				8CDC1A262BC802530088BAF1 /* Home.swift */,
+				8CCFD03F2BE37E370059EF94 /* RecordContentView.swift */,
+				8CCFD0412BE37E680059EF94 /* NoRecordContentView.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		8CCFD0432BE37ED80059EF94 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				8CDC1A2A2BC8D49A0088BAF1 /* MusicSearchView.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		8CCFD0442BE37EE50059EF94 /* Write */ = {
+			isa = PBXGroup;
+			children = (
+				8CE7C9022BCD43B7003AEE9B /* WriteView.swift */,
+			);
+			path = Write;
+			sourceTree = "<group>";
+		};
 		8CDC19E42BC801C30088BAF1 = {
 			isa = PBXGroup;
 			children = (
@@ -179,9 +209,9 @@
 		8CDC1A252BC8024B0088BAF1 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				8CDC1A262BC802530088BAF1 /* Home.swift */,
-				8CDC1A2A2BC8D49A0088BAF1 /* MusicSearchView.swift */,
-				8CE7C9022BCD43B7003AEE9B /* WriteView.swift */,
+				8CCFD0442BE37EE50059EF94 /* Write */,
+				8CCFD03E2BE37E050059EF94 /* Home */,
+				8CCFD0432BE37ED80059EF94 /* Search */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -360,6 +390,7 @@
 			files = (
 				8CE7C8FC2BCA7AF5003AEE9B /* SharedDataManager.swift in Sources */,
 				8CDC1A2E2BC8DEAD0088BAF1 /* MusicSearchManager.swift in Sources */,
+				8CCFD0422BE37E680059EF94 /* NoRecordContentView.swift in Sources */,
 				8CE7C8F42BCA542E003AEE9B /* MusicAuthorizationManager.swift in Sources */,
 				8CE7C8F92BCA7334003AEE9B /* RecordModel.swift in Sources */,
 				8CDC19F12BC801C30088BAF1 /* MusicRecordApp.swift in Sources */,
@@ -368,6 +399,7 @@
 				8CDC1A292BC8077D0088BAF1 /* OffsetKey.swift in Sources */,
 				8CDC1A212BC802170088BAF1 /* View+Extension.swift in Sources */,
 				8CE7C9032BCD43B7003AEE9B /* WriteView.swift in Sources */,
+				8CCFD0402BE37E370059EF94 /* RecordContentView.swift in Sources */,
 				8CDC1A272BC802530088BAF1 /* Home.swift in Sources */,
 				8CE7C8FF2BCACF1B003AEE9B /* ImageManager.swift in Sources */,
 				8CDC1A1F2BC802050088BAF1 /* Date+Extension.swift in Sources */,

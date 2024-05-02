@@ -32,6 +32,7 @@ class DayRecord {
 @Model
 class Record {
     @Attribute(.unique) var date: String
+    /// ✍️ Mark : deleteRule 를 nullify로 하는 것이 맞을까
     @Relationship(deleteRule: .nullify) var records: [DayRecord]
     
     init(date: String, records: [DayRecord]) {

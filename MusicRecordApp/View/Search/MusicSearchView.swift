@@ -14,6 +14,7 @@ struct MusicSearchView: View {
     
     @Binding var isPresented: Bool
     @EnvironmentObject var sharedDateManager: SharedDataManager
+    /// ✍️ Mark: ObservedObject로 구현하는 것이 적합할까, StateObject로 구현하는 것이 적합할까
     @ObservedObject private var searchManager = MusicSearchManager.shared
     @State private var navigateToWriteView = false
     
@@ -24,6 +25,7 @@ struct MusicSearchView: View {
             }
             .searchable(text: $searchManager.searchTerm, prompt: "오늘의 음악을 골라볼까요?")
             .onChange(of: searchManager.searchTerm) {
+                /// Mark : 검색 시 느려지는 현상
                 Task {
                     await MusicSearchManager.shared.requestUpdatedSearchResults()
                 }

@@ -74,7 +74,7 @@ extension WriteView {
         print("Selected Song Info: \(String(describing: sharedDateManager.selectedSongInfo))")
         
         let record = Record(date: sharedDateManager.selectedDate ?? "", records: [
-            DayRecord(id: UUID(), albumImage: imageManager.fetchArtworkURL(artwork: song!.artwork), songID: song!.id.rawValue, songTitle: song!.title, singer: song!.artistName, detailRecord: text)
+            DayRecord(id: UUID(), albumImage: imageManager.getArtworURL(artwork: song!.artwork), songID: song!.id.rawValue, songTitle: song!.title, singer: song!.artistName, detailRecord: text)
         ])
         print("저장된 데이터 확인: \(record)")
         

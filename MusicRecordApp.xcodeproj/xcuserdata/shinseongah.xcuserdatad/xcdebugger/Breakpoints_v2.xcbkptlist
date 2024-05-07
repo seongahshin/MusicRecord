@@ -20,5 +20,396 @@
             landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "EE8A282A-1F94-476B-BEEA-AD0653685932"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MusicRecordApp/View/Search/MusicSearchView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "30"
+            endingLineNumber = "30"
+            landmarkName = "body"
+            landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "EE8A282A-1F94-476B-BEEA-AD0653685932 - 3cff89df519811b8"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for closure #1 @Sendable () async -&gt; () in closure #2 () -&gt; () in closure #1 () -&gt; &lt;&lt;opaque return type of SwiftUI.View.onAppear(perform: Swift.Optional&lt;() -&gt; ()&gt;) -&gt; some&gt;&gt;.0 in MusicRecordApp.MusicSearchView.body.getter : some"
+                  moduleName = "MusicRecordApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shinseongah/Desktop/MusicRecordApp/MusicRecordApp/View/Search/MusicSearchView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "30"
+                  endingLineNumber = "30"
+                  offsetFromSymbolStart = "52">
+               </Location>
+               <Location
+                  uuid = "EE8A282A-1F94-476B-BEEA-AD0653685932 - dc7e10b7c24bbdd5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(2) await resume partial function for closure #1 @Sendable () async -&gt; () in closure #2 () -&gt; () in closure #1 () -&gt; &lt;&lt;opaque return type of SwiftUI.View.onAppear(perform: Swift.Optional&lt;() -&gt; ()&gt;) -&gt; some&gt;&gt;.0 in MusicRecordApp.MusicSearchView.body.getter : some"
+                  moduleName = "MusicRecordApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shinseongah/Desktop/MusicRecordApp/MusicRecordApp/View/Search/MusicSearchView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "30"
+                  endingLineNumber = "30"
+                  offsetFromSymbolStart = "40">
+               </Location>
+               <Location
+                  uuid = "EE8A282A-1F94-476B-BEEA-AD0653685932 - a230ae52d0855fa6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for closure #1 @Sendable () async -&gt; () in closure #2 () -&gt; () in closure #1 () -&gt; &lt;&lt;opaque return type of SwiftUI.View.onAppear(perform: Swift.Optional&lt;() -&gt; ()&gt;) -&gt; some&gt;&gt;.0 in MusicRecordApp.MusicSearchView.body.getter : some"
+                  moduleName = "MusicRecordApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shinseongah/Desktop/MusicRecordApp/MusicRecordApp/View/Search/MusicSearchView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "30"
+                  endingLineNumber = "30"
+                  offsetFromSymbolStart = "20">
+               </Location>
+               <Location
+                  uuid = "EE8A282A-1F94-476B-BEEA-AD0653685932 - 8cdb0932e5b92779"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; &lt;&lt;opaque return type of SwiftUI.View.onAppear(perform: Swift.Optional&lt;() -&gt; ()&gt;) -&gt; some&gt;&gt;.0 in MusicRecordApp.MusicSearchView.body.getter : some"
+                  moduleName = "MusicRecordApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shinseongah/Desktop/MusicRecordApp/MusicRecordApp/View/Search/MusicSearchView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "30"
+                  endingLineNumber = "30"
+                  offsetFromSymbolStart = "1224">
+               </Location>
+               <Location
+                  uuid = "EE8A282A-1F94-476B-BEEA-AD0653685932 - 1fdb3279787a688f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 () -&gt; () in closure #1 () -&gt; &lt;&lt;opaque return type of SwiftUI.View.onAppear(perform: Swift.Optional&lt;() -&gt; ()&gt;) -&gt; some&gt;&gt;.0 in MusicRecordApp.MusicSearchView.body.getter : some"
+                  moduleName = "MusicRecordApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shinseongah/Desktop/MusicRecordApp/MusicRecordApp/View/Search/MusicSearchView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "30"
+                  endingLineNumber = "30"
+                  offsetFromSymbolStart = "64">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "FFBE5D9D-BFDA-4A8D-A2A6-D2D92878B027"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MusicRecordApp/View/Search/MusicSearchView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "34"
+            endingLineNumber = "34"
+            landmarkName = "body"
+            landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "FFBE5D9D-BFDA-4A8D-A2A6-D2D92878B027 - 99c5b6cf4c833f0a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #3 () -&gt; () in closure #1 () -&gt; &lt;&lt;opaque return type of SwiftUI.View.onAppear(perform: Swift.Optional&lt;() -&gt; ()&gt;) -&gt; some&gt;&gt;.0 in MusicRecordApp.MusicSearchView.body.getter : some"
+                  moduleName = "MusicRecordApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shinseongah/Desktop/MusicRecordApp/MusicRecordApp/View/Search/MusicSearchView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "34"
+                  endingLineNumber = "34"
+                  offsetFromSymbolStart = "44">
+               </Location>
+               <Location
+                  uuid = "FFBE5D9D-BFDA-4A8D-A2A6-D2D92878B027 - 3cff89df5198103c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for closure #1 @Sendable () async -&gt; () in closure #2 () -&gt; () in closure #1 () -&gt; &lt;&lt;opaque return type of SwiftUI.View.onAppear(perform: Swift.Optional&lt;() -&gt; ()&gt;) -&gt; some&gt;&gt;.0 in MusicRecordApp.MusicSearchView.body.getter : some"
+                  moduleName = "MusicRecordApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shinseongah/Desktop/MusicRecordApp/MusicRecordApp/View/Search/MusicSearchView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "34"
+                  endingLineNumber = "34"
+                  offsetFromSymbolStart = "52">
+               </Location>
+               <Location
+                  uuid = "FFBE5D9D-BFDA-4A8D-A2A6-D2D92878B027 - dc7e10b7c24bbc51"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(2) await resume partial function for closure #1 @Sendable () async -&gt; () in closure #2 () -&gt; () in closure #1 () -&gt; &lt;&lt;opaque return type of SwiftUI.View.onAppear(perform: Swift.Optional&lt;() -&gt; ()&gt;) -&gt; some&gt;&gt;.0 in MusicRecordApp.MusicSearchView.body.getter : some"
+                  moduleName = "MusicRecordApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shinseongah/Desktop/MusicRecordApp/MusicRecordApp/View/Search/MusicSearchView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "34"
+                  endingLineNumber = "34"
+                  offsetFromSymbolStart = "40">
+               </Location>
+               <Location
+                  uuid = "FFBE5D9D-BFDA-4A8D-A2A6-D2D92878B027 - a230ae52d0855e22"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for closure #1 @Sendable () async -&gt; () in closure #2 () -&gt; () in closure #1 () -&gt; &lt;&lt;opaque return type of SwiftUI.View.onAppear(perform: Swift.Optional&lt;() -&gt; ()&gt;) -&gt; some&gt;&gt;.0 in MusicRecordApp.MusicSearchView.body.getter : some"
+                  moduleName = "MusicRecordApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shinseongah/Desktop/MusicRecordApp/MusicRecordApp/View/Search/MusicSearchView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "34"
+                  endingLineNumber = "34"
+                  offsetFromSymbolStart = "20">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "460C604E-3F52-41A4-8DBE-FE86FAFE48AB"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MusicRecordApp/View/Search/MusicSearchView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "45"
+            endingLineNumber = "45"
+            landmarkName = "searchResultList()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "460C604E-3F52-41A4-8DBE-FE86FAFE48AB - f94044c9d05388a3"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; SwiftUI.TupleView&lt;(Swift.Optional&lt;&lt;&lt;opaque return type of SwiftUI.View.frame(width: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, height: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, alignment: SwiftUI.Alignment) -&gt; some&gt;&gt;.0&gt;, SwiftUI.VStack&lt;SwiftUI.TupleView&lt;(SwiftUI.Text, SwiftUI.Text)&gt;&gt;)&gt; in closure #1 () -&gt; SwiftUI.HStack&lt;SwiftUI.TupleView&lt;(Swift.Optional&lt;&lt;&lt;opaque return type of SwiftUI.View.frame(width: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, height: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, alignment: SwiftUI.Alignment) -&gt; some&gt;&gt;.0&gt;, SwiftUI.VStack&lt;SwiftUI.TupleView&lt;(SwiftUI.Text, SwiftUI.Text)&gt;&gt;)&gt;&gt; in closure #1 (MusicKit.Song) -&gt; SwiftUI.NavigationLink&lt;SwiftUI.HStack&lt;SwiftUI.TupleView&lt;(Swift.Optional&lt;&lt;&lt;opaque return type of SwiftUI.View.frame(width: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, height: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, alignment: SwiftUI.Alignment) -&gt; some&gt;&gt;.0&gt;, SwiftUI.VStack&lt;SwiftUI.TupleView&lt;(SwiftUI.Text, SwiftUI.Text)&gt;&gt;)&gt;&gt;, MusicRecordApp.WriteView&gt; in MusicRecordApp.MusicSearchView.searchResultList() -&gt; some"
+                  moduleName = "MusicRecordApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shinseongah/Desktop/MusicRecordApp/MusicRecordApp/View/Search/MusicSearchView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "45"
+                  endingLineNumber = "45"
+                  offsetFromSymbolStart = "928">
+               </Location>
+               <Location
+                  uuid = "460C604E-3F52-41A4-8DBE-FE86FAFE48AB - 8b09f1c10053a901"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MusicRecordApp.MusicSearchView.searchResultList() -&gt; some"
+                  moduleName = "MusicRecordApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shinseongah/Desktop/MusicRecordApp/MusicRecordApp/View/Search/MusicSearchView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "45"
+                  endingLineNumber = "45"
+                  offsetFromSymbolStart = "260">
+               </Location>
+               <Location
+                  uuid = "460C604E-3F52-41A4-8DBE-FE86FAFE48AB - 8b8896cc6b186113"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (MusicKit.Song) -&gt; SwiftUI.NavigationLink&lt;SwiftUI.HStack&lt;SwiftUI.TupleView&lt;(Swift.Optional&lt;&lt;&lt;opaque return type of SwiftUI.View.frame(width: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, height: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, alignment: SwiftUI.Alignment) -&gt; some&gt;&gt;.0&gt;, SwiftUI.VStack&lt;SwiftUI.TupleView&lt;(SwiftUI.Text, SwiftUI.Text)&gt;&gt;)&gt;&gt;, MusicRecordApp.WriteView&gt; in MusicRecordApp.MusicSearchView.searchResultList() -&gt; some"
+                  moduleName = "MusicRecordApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shinseongah/Desktop/MusicRecordApp/MusicRecordApp/View/Search/MusicSearchView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "45"
+                  endingLineNumber = "45"
+                  offsetFromSymbolStart = "308">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "4FB872E3-DE95-43E9-83AA-03AB0FCD194F"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MusicRecordApp/View/Search/MusicSearchView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "38"
+            endingLineNumber = "38"
+            landmarkName = "body"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "AD46404C-2FD9-4A33-A477-B5B0DECA8ACE"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MusicRecordApp/Manager/Music/MusicSearchManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "32"
+            endingLineNumber = "32"
+            landmarkName = "requestUpdatedSearchResults()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "AD46404C-2FD9-4A33-A477-B5B0DECA8ACE - ba418d55d986faea"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 @Swift.MainActor @Sendable () -&gt; () in MusicRecordApp.MusicSearchManager.requestUpdatedSearchResults() async -&gt; ()"
+                  moduleName = "MusicRecordApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shinseongah/Desktop/MusicRecordApp/MusicRecordApp/Manager/Music/MusicSearchManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "32"
+                  endingLineNumber = "32"
+                  offsetFromSymbolStart = "356">
+               </Location>
+               <Location
+                  uuid = "AD46404C-2FD9-4A33-A477-B5B0DECA8ACE - ba418d55d986faea"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 @Swift.MainActor @Sendable () -&gt; () in MusicRecordApp.MusicSearchManager.requestUpdatedSearchResults() async -&gt; ()"
+                  moduleName = "MusicRecordApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shinseongah/Desktop/MusicRecordApp/MusicRecordApp/Manager/Music/MusicSearchManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "32"
+                  endingLineNumber = "32"
+                  offsetFromSymbolStart = "188">
+               </Location>
+               <Location
+                  uuid = "AD46404C-2FD9-4A33-A477-B5B0DECA8ACE - bad5f44d6d93fa3"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (MusicKit.Song) -&gt; Swift.Optional&lt;MusicKit.Song&gt; in closure #2 @Swift.MainActor @Sendable () -&gt; () in MusicRecordApp.MusicSearchManager.requestUpdatedSearchResults() async -&gt; ()"
+                  moduleName = "MusicRecordApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shinseongah/Desktop/MusicRecordApp/MusicRecordApp/Manager/Music/MusicSearchManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "32"
+                  endingLineNumber = "32"
+                  offsetFromSymbolStart = "36">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F4B8D721-4E63-458C-96E7-6B6536E6B87A"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MusicRecordApp/Manager/Music/MusicSearchManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "35"
+            endingLineNumber = "35"
+            landmarkName = "requestUpdatedSearchResults()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "F4B8D721-4E63-458C-96E7-6B6536E6B87A - b72b4663e4d4501e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for MusicRecordApp.MusicSearchManager.requestUpdatedSearchResults() async -&gt; ()"
+                  moduleName = "MusicRecordApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shinseongah/Desktop/MusicRecordApp/MusicRecordApp/Manager/Music/MusicSearchManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "36"
+                  endingLineNumber = "36"
+                  offsetFromSymbolStart = "816">
+               </Location>
+               <Location
+                  uuid = "F4B8D721-4E63-458C-96E7-6B6536E6B87A - 80632c9068a6d822"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(5) suspend resume partial function for MusicRecordApp.MusicSearchManager.requestUpdatedSearchResults() async -&gt; ()"
+                  moduleName = "MusicRecordApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shinseongah/Desktop/MusicRecordApp/MusicRecordApp/Manager/Music/MusicSearchManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "36"
+                  endingLineNumber = "36"
+                  offsetFromSymbolStart = "240">
+               </Location>
+               <Location
+                  uuid = "F4B8D721-4E63-458C-96E7-6B6536E6B87A - 9cb2c5c4f7437a23"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(6) suspend resume partial function for MusicRecordApp.MusicSearchManager.requestUpdatedSearchResults() async -&gt; ()"
+                  moduleName = "MusicRecordApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shinseongah/Desktop/MusicRecordApp/MusicRecordApp/Manager/Music/MusicSearchManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "36"
+                  endingLineNumber = "36"
+                  offsetFromSymbolStart = "632">
+               </Location>
+               <Location
+                  uuid = "F4B8D721-4E63-458C-96E7-6B6536E6B87A - 9cb2c5c4f7437a42"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(6) suspend resume partial function for MusicRecordApp.MusicSearchManager.requestUpdatedSearchResults() async -&gt; ()"
+                  moduleName = "MusicRecordApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shinseongah/Desktop/MusicRecordApp/MusicRecordApp/Manager/Music/MusicSearchManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "35"
+                  endingLineNumber = "35"
+                  offsetFromSymbolStart = "256">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

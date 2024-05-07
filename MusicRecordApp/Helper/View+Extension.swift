@@ -23,6 +23,7 @@ extension View {
     }
     
     /// Checking Two dates are same
+    /// 위치, 형식 : 이게 여기에 있어야 되나
     func isSameDate(_ date1: String, _ date2: String) -> Bool {
         if date1 == date2 {
             return true

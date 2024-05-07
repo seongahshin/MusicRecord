@@ -22,6 +22,7 @@ class MusicSearchManager: ObservableObject {
             return
         }
         
+        // 로그를 찍어보자..?..?..?.....
         do {
             var searchRequest = MusicCatalogSearchRequest(term: searchTerm, types: [Song.self])
             searchRequest.limit = 5

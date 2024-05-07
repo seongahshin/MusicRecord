@@ -19,7 +19,13 @@ class DayRecord {
     var singer: String
     var detailRecord: String
     
-    init(id: UUID, albumImage: String? = nil, songID: String, songTitle: String, singer: String, detailRecord: String) {
+    // SwiftLint - 라이브러리
+    init(id: UUID,
+         albumImage: String? = nil,
+         songID: String,
+         songTitle: String,
+         singer: String,
+         detailRecord: String) {
         self.id = id
         self.albumImage = albumImage
         self.songID = songID
@@ -30,9 +36,12 @@ class DayRecord {
 }
 
 @Model
+// RecordGrop..?이라는 표현..?
+// RecordInfo ..? 지양..?
 class Record {
     @Attribute(.unique) var date: String
     /// ✍️ Mark : deleteRule 를 nullify로 하는 것이 맞을까
+    /// Record 안에 records -> dayRecords 로 변경
     @Relationship(deleteRule: .nullify) var records: [DayRecord]
     
     init(date: String, records: [DayRecord]) {

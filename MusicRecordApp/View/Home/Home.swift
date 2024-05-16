@@ -9,6 +9,7 @@ import SwiftUI
 import MusicKit
 import SwiftData
 
+// HomeView로 변경
 struct Home: View {
     @EnvironmentObject var sharedDateManager: SharedDataManager
     
@@ -60,8 +61,10 @@ struct Home: View {
     func selectRecordView() -> some View {
         if !recordArray.isEmpty {
             // 현재 선택된 노래가 있는 상태이고 해당 날짜에 저장된 노래가 있는 상태
+            // out of index 발생할 수 있는 코드
             let songInfo = recordArray[0].records[0]
             if let image = songInfo.albumImage {
+                // 주입을 해주는 방식
                 RecordContentView(songInfo: SongInfo(image: image, title: songInfo.songTitle, singer: songInfo.singer, id: songInfo.songID), selectedDate: $currentDate, recordText: songInfo.detailRecord)
             }
         } else {
